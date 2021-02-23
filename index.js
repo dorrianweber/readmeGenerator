@@ -29,9 +29,9 @@ inquirer
 
         {
             type: "list",
-            name: "liscense",
-            message: "Please select the liscense under which your application is covered.",
-            choices: ["liscence1", "liscence2", "liscence3", "liscence4"]
+            name: "license",
+            message: "Please select the license under which your application is covered.",
+            choices: ["license1", "license2", "license3", "license4"]
         },
 
         {
@@ -45,7 +45,7 @@ inquirer
             name: "tests",
             message: "Describe how to test the application."
         },
-        
+
         {
             type: "input",
             name: "github",
@@ -67,7 +67,7 @@ inquirer
         );
     });
 
-const generateReadme = ({title, description, installation, usage, liscense, contributing, tests, github, email}) =>
+const generateReadme = ({title, description, installation, usage, license, contributing, tests, github, email}) =>
 
 `# ${title}
 
@@ -75,7 +75,7 @@ const generateReadme = ({title, description, installation, usage, liscense, cont
 1. [Description](#description)
 2. [Installation](#installation)
 3. [Usage](#usage)
-4. [Liscense](#liscense)
+4. [License](#license)
 5. [Contributing](#contributing)
 6. [Tests](#tests)
 7. [Questions](#questions)
@@ -92,9 +92,9 @@ ${installation}
 
 ${usage}
 
-## Liscense
+## License
 
-This application is covered under the ___ liscence.
+This application is covered under the ___ license.
 
 ## Contributing
 
@@ -111,3 +111,6 @@ For any questions or comments, here is my contact information.
 GitHub: https://github.com/${github}
 <br>
 Email address: ${email}`
+
+// license section: case "name" / "url for badge"?
+// collaborators section: conditional?

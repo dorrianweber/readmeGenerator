@@ -28,6 +28,13 @@ inquirer
         },
 
         {
+            type: "list",
+            name: "liscense",
+            message: "Please select the liscense under which your application is covered.",
+            choices: ["liscence1", "liscence2", "liscence3", "liscence4"]
+        },
+
+        {
             type: "input",
             name: "contributing",
             message: "How does a developer go about contributiing to this project?"
@@ -37,13 +44,6 @@ inquirer
             type: "input",
             name: "tests",
             message: "Describe how to test the application."
-        },
-
-        {
-            type: "list",
-            name: "liscense",
-            message: "Please select the liscense under which your application is covered.",
-            choices: ["liscence1", "liscence2", "liscence3", "liscence4"]
         },
         
         {
@@ -67,41 +67,47 @@ inquirer
         );
     });
 
-const generateReadme = ({title, description, installation, usage, contributing, tests, liscense, github, email}) =>
-    `
-    # ${title}
+const generateReadme = ({title, description, installation, usage, liscense, contributing, tests, github, email}) =>
 
-    ## Table of Contents
-    1. [Description](#description)
-    2. [Installation](#installation)
-    3. [Usage](#usage)
-    4. [Contributing](#contributing)
-    5. [Tests](#tests)
-    6. [Questions](#questions)
+`# ${title}
 
-    ## Description
+## Table of Contents
+1. [Description](#description)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Liscense](#liscense)
+5. [Contributing](#contributing)
+6. [Tests](#tests)
+7. [Questions](#questions)
 
-    ${description}
+## Description
 
-    ## Installation
+${description}
 
-    ${installation}
+## Installation
 
-    ## Usage
+${installation}
 
-    ${usage}
+## Usage
 
-    ## Contributing
+${usage}
 
-    ${contributing}
-    
-    ## Tests
+## Liscense
 
-    ${tests}
-    
-    ## Questions
+This application is covered under the ___ liscence.
 
-    For any questions or comments, here is my contact information.
-    GitHub: https://github.com/${github}
-    Email address: ${email}
-    `
+## Contributing
+
+${contributing}
+
+## Tests
+
+${tests}
+
+## Questions
+
+For any questions or comments, here is my contact information.
+<br>
+GitHub: https://github.com/${github}
+<br>
+Email address: ${email}`

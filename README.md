@@ -1,5 +1,8 @@
 # README Generator
 
+![languages used badge](https://img.shields.io/github/languages/count/dorrianweber/readmeGenerator)
+![top language badge](https://img.shields.io/github/languages/top/dorrianweber/readmeGenerator?color=darkred)
+
 ## Table of Contents
 1. [Description](#description)
 2. [Installation](#installation)

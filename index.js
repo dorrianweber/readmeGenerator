@@ -31,7 +31,7 @@ inquirer
             type: "list",
             name: "license",
             message: "Please select the license under which your application is covered.",
-            choices: ["MIT", "license2", "license3", "license4"]
+            choices: ["MIT", "GNU GPL v3", "Apache 2.0", "ISC"]
         },
 
         {
@@ -64,10 +64,19 @@ inquirer
         switch (responses.license) {
             case "MIT":
                 licenseBadge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
-                break
+                break;
+            case "GNU GPL v3":
+                licenseBadge = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
+                break;
+            case "Apache 2.0":
+                licenseBadge = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+                break;
+            case "ISC":
+                licenseBadge = "[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)";
+                break;
             default:
                 licenseBadge = "";
-        }
+        };
         const readmeFile = generateReadme({...responses, licenseBadge: licenseBadge});
         console.log(readmeFile);
 
@@ -122,5 +131,3 @@ For any questions or comments, here is my contact information.
 GitHub: https://github.com/${github}
 <br>
 Email address: ${email}`
-
-// collaborators section: conditional?

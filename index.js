@@ -31,7 +31,7 @@ inquirer
             type: "list",
             name: "license",
             message: "Please select the license under which your application is covered.",
-            choices: ["license1", "license2", "license3", "license4"]
+            choices: ["MIT", "license2", "license3", "license4"]
         },
 
         {
@@ -59,7 +59,16 @@ inquirer
         },
     ])
     .then((responses) => {
-        const readmeFile = generateReadme(responses);
+        let licenseBadge
+
+        switch (responses.license) {
+            case "MIT":
+                licenseBadge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+                break
+            default:
+                licenseBadge = "";
+        }
+        const readmeFile = generateReadme({...responses, licenseBadge: licenseBadge});
         console.log(readmeFile);
 
         fs.writeFile("README.md", readmeFile, (err) =>
@@ -67,9 +76,11 @@ inquirer
         );
     });
 
-const generateReadme = ({title, description, installation, usage, license, contributing, tests, github, email}) =>
+const generateReadme = ({title, description, installation, usage, license, contributing, tests, github, email, licenseBadge}) =>
 
 `# ${title}
+
+${licenseBadge}
 
 ## Table of Contents
 1. [Description](#description)
@@ -94,7 +105,7 @@ ${usage}
 
 ## License
 
-This application is covered under the ___ license.
+This application is covered under the ${license} license.
 
 ## Contributing
 
@@ -112,5 +123,4 @@ GitHub: https://github.com/${github}
 <br>
 Email address: ${email}`
 
-// license section: case "name" / "url for badge"?
 // collaborators section: conditional?
